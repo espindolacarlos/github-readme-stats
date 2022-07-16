@@ -39,11 +39,9 @@ module.exports = async (req, res) => {
   if (blacklist.includes(username)) {
     return res.send(renderError("Something went wrong"));
   }
-
   if (locale && !isLocaleAvailable(locale)) {
     return res.send(renderError("Something went wrong", "Language not found"));
   }
-
   try {
     const stats = await fetchStats(
       username,
